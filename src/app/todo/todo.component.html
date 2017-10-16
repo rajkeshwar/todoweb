@@ -1,0 +1,41 @@
+
+<p-growl [(value)]="todoMessages"></p-growl>
+
+<div class="flex-row">
+    <h3 class="first">Lis of todos</h3>
+    <button pButton type="button" (click)="logout()" class="ui-button-secondary" label="Logout"></button>
+</div>
+
+<div class="ui-widget-header add-new-todo">
+    <form #f="ngForm" (submit)="addTodo($event)">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <input type="text" pInputText size="50" name="newTodo"
+            [(ngModel)]="newTodo" placeholder="Type new todo and hit enter">
+        <button pButton type="button" label="Add todo"></button>
+    </form>
+</div>
+<p-dataTable [value]="todoList" [rows]="8" [editable]="true"
+    scrollable="true" resizableColumns="true" scrollHeight="300px"
+    [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]"> 
+    <p-column *ngFor="let columnName of columnNames; let i=index;" 
+        [sortable]="i != 4" [editable]="i == 1"
+        [field]="columnName" [header]="toTitleCase(columnName)">
+        <ng-template pTemplate="header" *ngIf="i===4">
+            Delete
+        </ng-template>
+        
+        <ng-template let-todo="rowData" pTemplate="body" *ngIf="i===0">
+            <p-checkbox name="groupname"
+                name="checked" [value]="todo.completed" 
+                binary="true" 
+                [ngModel]="todo.checked" 
+                (ngModelChange)="todoChecked($event, todo)">
+            </p-checkbox>
+        </ng-template>
+        <ng-template let-todo="rowData" pTemplate="body" *ngIf="i===4">
+            <div class="action-icons">
+                <i class="fa fa-trash" (click)="deleteTodo(todo)"></i>            
+            </div>
+        </ng-template>
+    </p-column>
+</p-dataTable>

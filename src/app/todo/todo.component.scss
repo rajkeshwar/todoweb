@@ -1,0 +1,51 @@
+
+.add-new-todo {
+    padding: 15px 20px;
+    margin-bottom: -1px;
+    display: flex;
+    align-items: center;
+
+    .fa-plus {
+        margin: 0 20px 0 10px;
+    }
+
+    input {
+        flex: 1;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        button {
+            margin-left: 10px;
+        }
+    }
+}
+
+.action-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .fa-pencil {
+        margin-right: 10px;
+        display: inline-block;
+    }
+    .fa-trash {
+        margin-left: 10px;
+        display: inline-block;
+    }
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .first {
+        font-size: 24px;
+    }
+}

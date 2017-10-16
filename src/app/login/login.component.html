@@ -1,0 +1,19 @@
+<p-growl [(value)]="errorMessages"></p-growl>
+
+<div class="login-wpr">
+    <div class="login-inner">
+        <h3 class="first">User Login</h3>
+        <div class="login-box">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                <input type="text" name="username" [(ngModel)]="user.username"  pInputText placeholder="Username">
+            </div>
+
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                <input type="password" name="password" [(ngModel)]="user.password" pInputText placeholder="Password">
+            </div>
+            <button pButton type="button" (click)="login()" label="Login"></button>
+        </div>
+    </div>
+</div>
